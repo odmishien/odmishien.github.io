@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-source-github-api`,
       options: {
-        token: "6c863b1a1b07a4636aa7de7f8dfe9326181c6b64",
+        token: "process.env.GITHUB_API_TOKEN",
         graphQLQuery: `
         query ($q: String="", $nFirst: Int=0) {
           allGithubData: search(query: $q, type: REPOSITORY, first: $nFirst) {
