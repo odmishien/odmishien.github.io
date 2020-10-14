@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `odmishien`,
+    description: `odmishien's portfolio site.`,
+    author: `odmishien`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,18 +16,43 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-source-github-api`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        token: "6c863b1a1b07a4636aa7de7f8dfe9326181c6b64",
+        graphQLQuery: `
+        query ($q: String="", $nFirst: Int=0) {
+          allGithubData: search(query: $q, type: REPOSITORY, first: $nFirst) {
+            edges {
+              node {
+                ... on Repository {
+                  id
+                  name
+                  description
+                  url
+                }
+              }
+            }
+          }
+        }
+        `,
+        variables: {
+          q: `topic:portfolio user:odmishien`,
+          nFirst: 10,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://tech.odmishien.fun/rss`,
+        name: `HatenaBlogPosts`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-graphql-codegen",
+      options: {
+        fileName: `types/graphql-types.d.ts`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
