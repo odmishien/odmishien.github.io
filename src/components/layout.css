@@ -683,23 +683,23 @@ pre tt:after {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000 !important;
+    background-color: #121212 !important;
     color: #fff !important;
   }
 
   a:link {
-    color: #ff01aafa !important;
+    color: #dccdff !important;
   }
 
   a:visited {
-    color: #ff0000 !important;
+    color: #BB86FC !important;
   }
 
   a:hover {
-    color: #ff61caef !important;
+    color: #d3b1fc !important;
   }
 
   a:active {
-    color: #ff8000 !important;
+    color: #03DAC6 !important;
   }
 }
