@@ -38,14 +38,22 @@ const HatenaPosts: React.FC<HatenaPostsProps> = ({ posts }) => {
       <section id="blog">
         <h2>Blogs</h2>
         <table className="alt">
-          <td>Title</td>
-          <td>PubDate</td>
-          {items}
-          <tr>
-            <a href={`https://tech.odmishien.fun`} className="button">
-              Show More Items
-            </a>
-          </tr>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>PubDate</th>
+            </tr>
+          </thead>
+          <tbody>{items}</tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <a href={`https://tech.odmishien.fun`} className="button">
+                  Show More Items
+                </a>
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </section>
     </Row>

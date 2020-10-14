@@ -1,14 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: `odmishien`,
-    description: `odmishien's portfolio site.`,
-    author: `odmishien`,
+    title: "odmishien",
+    description: "Hello, World! I'm odmishien!",
+    author: "@odmishien",
   },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "odmishien",
+        short_name: "odmishien",
+        start_url: "/",
+        icon: "src/images/icon.png",
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
