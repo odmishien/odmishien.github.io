@@ -18,7 +18,7 @@ const Icon = () => {
     }
   `)
   return (
-    <Row className="mb-4">
+    <Row className="ml-1 mb-4">
       <>
         {data?.file?.childImageSharp?.fixed && (
           <Image fixed={data?.file?.childImageSharp?.fixed} />
