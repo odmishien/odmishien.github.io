@@ -24,23 +24,23 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
       <Layout>
         <Container>
           <Row className="mb-4">
-            <h1 className="mr-4">odmishien</h1>
-            <a className="mr-2" href="https://twitter.com/odmishien">
+            <h1 className="mr-2">odmishien</h1>
+            <a className="mr-1" href="https://twitter.com/odmishien">
               <h1>
                 <FiTwitter />
               </h1>
             </a>
-            <a className="mr-2" href="https://github.com/odmishien">
+            <a className="mr-1" href="https://github.com/odmishien">
               <h1>
                 <FiGithub />
               </h1>
             </a>
-            <a className="mr-2" href="https://instagram.com/odmishien">
+            <a className="mr-1" href="https://instagram.com/odmishien">
               <h1>
                 <FiInstagram />
               </h1>
             </a>
-            <a className="mr-2" href="https://blog.odmishien.fun">
+            <a className="mr-1" href="https://blog.odmishien.fun">
               <h1>
                 <FiPenTool />
               </h1>

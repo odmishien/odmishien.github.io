@@ -22,14 +22,11 @@ const HatenaPosts: React.FC<HatenaPostsProps> = ({ posts }) => {
       "ddd, DD MMM YYYY HH:mm:ss ZZ"
     ).format("YYYY-MM-DD")
     return (
-      <tr>
-        <td>
-          <a href={link}>{title}</a>
-        </td>
-        <td>
-          <span> {formatPubDate}</span>
-        </td>
-      </tr>
+      <li>
+        <a href={link}>
+          {title} - {formatPubDate}
+        </a>
+      </li>
     )
   })
 
@@ -37,24 +34,14 @@ const HatenaPosts: React.FC<HatenaPostsProps> = ({ posts }) => {
     <Row className="mb-4">
       <section id="blog">
         <h2>Blogs</h2>
-        <table className="alt">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>PubDate</th>
-            </tr>
-          </thead>
-          <tbody>{items}</tbody>
-          <tfoot>
-            <tr>
-              <td>
-                <a href={`https://tech.odmishien.fun`} className="button">
-                  Show More Items
-                </a>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
+        <ul>
+          {items}
+          <li>
+            <a href={`https://tech.odmishien.fun`} className="button">
+              Show More Items
+            </a>
+          </li>
+        </ul>
       </section>
     </Row>
   )
