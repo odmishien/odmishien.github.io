@@ -363,8 +363,8 @@ export type FeedHatenaBlogPosts = Node & {
   content?: Maybe<Scalars['String']>;
   contentSnippet?: Maybe<Scalars['String']>;
   guid?: Maybe<Scalars['String']>;
-  categories?: Maybe<Array<Maybe<Scalars['String']>>>;
   isoDate?: Maybe<Scalars['Date']>;
+  categories?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -510,8 +510,8 @@ export type FeedHatenaBlogPostsFieldsEnum =
   | 'content'
   | 'contentSnippet'
   | 'guid'
-  | 'categories'
-  | 'isoDate';
+  | 'isoDate'
+  | 'categories';
 
 export type FeedHatenaBlogPostsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -525,8 +525,8 @@ export type FeedHatenaBlogPostsFilterInput = {
   content?: Maybe<StringQueryOperatorInput>;
   contentSnippet?: Maybe<StringQueryOperatorInput>;
   guid?: Maybe<StringQueryOperatorInput>;
-  categories?: Maybe<StringQueryOperatorInput>;
   isoDate?: Maybe<DateQueryOperatorInput>;
+  categories?: Maybe<StringQueryOperatorInput>;
 };
 
 export type FeedHatenaBlogPostsGroupConnection = {
@@ -1143,45 +1143,45 @@ export type GithubDataConnectionGroupArgs = {
 };
 
 export type GithubDataData = {
-  allGithubData?: Maybe<GithubDataDataAllGithubData>;
+  search?: Maybe<GithubDataDataSearch>;
 };
 
-export type GithubDataDataAllGithubData = {
-  edges?: Maybe<Array<Maybe<GithubDataDataAllGithubDataEdges>>>;
+export type GithubDataDataFilterInput = {
+  search?: Maybe<GithubDataDataSearchFilterInput>;
 };
 
-export type GithubDataDataAllGithubDataEdges = {
-  node?: Maybe<GithubDataDataAllGithubDataEdgesNode>;
+export type GithubDataDataSearch = {
+  edges?: Maybe<Array<Maybe<GithubDataDataSearchEdges>>>;
 };
 
-export type GithubDataDataAllGithubDataEdgesFilterInput = {
-  node?: Maybe<GithubDataDataAllGithubDataEdgesNodeFilterInput>;
+export type GithubDataDataSearchEdges = {
+  node?: Maybe<GithubDataDataSearchEdgesNode>;
 };
 
-export type GithubDataDataAllGithubDataEdgesFilterListInput = {
-  elemMatch?: Maybe<GithubDataDataAllGithubDataEdgesFilterInput>;
+export type GithubDataDataSearchEdgesFilterInput = {
+  node?: Maybe<GithubDataDataSearchEdgesNodeFilterInput>;
 };
 
-export type GithubDataDataAllGithubDataEdgesNode = {
+export type GithubDataDataSearchEdgesFilterListInput = {
+  elemMatch?: Maybe<GithubDataDataSearchEdgesFilterInput>;
+};
+
+export type GithubDataDataSearchEdgesNode = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
 };
 
-export type GithubDataDataAllGithubDataEdgesNodeFilterInput = {
+export type GithubDataDataSearchEdgesNodeFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
 };
 
-export type GithubDataDataAllGithubDataFilterInput = {
-  edges?: Maybe<GithubDataDataAllGithubDataEdgesFilterListInput>;
-};
-
-export type GithubDataDataFilterInput = {
-  allGithubData?: Maybe<GithubDataDataAllGithubDataFilterInput>;
+export type GithubDataDataSearchFilterInput = {
+  edges?: Maybe<GithubDataDataSearchEdgesFilterListInput>;
 };
 
 export type GithubDataEdge = {
@@ -1277,8 +1277,8 @@ export type GithubDataFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'data___allGithubData___edges'
-  | 'rawResult___data___allGithubData___edges';
+  | 'data___search___edges'
+  | 'rawResult___data___search___edges';
 
 export type GithubDataFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1303,45 +1303,45 @@ export type GithubDataRawResult = {
 };
 
 export type GithubDataRawResultData = {
-  allGithubData?: Maybe<GithubDataRawResultDataAllGithubData>;
+  search?: Maybe<GithubDataRawResultDataSearch>;
 };
 
-export type GithubDataRawResultDataAllGithubData = {
-  edges?: Maybe<Array<Maybe<GithubDataRawResultDataAllGithubDataEdges>>>;
+export type GithubDataRawResultDataFilterInput = {
+  search?: Maybe<GithubDataRawResultDataSearchFilterInput>;
 };
 
-export type GithubDataRawResultDataAllGithubDataEdges = {
-  node?: Maybe<GithubDataRawResultDataAllGithubDataEdgesNode>;
+export type GithubDataRawResultDataSearch = {
+  edges?: Maybe<Array<Maybe<GithubDataRawResultDataSearchEdges>>>;
 };
 
-export type GithubDataRawResultDataAllGithubDataEdgesFilterInput = {
-  node?: Maybe<GithubDataRawResultDataAllGithubDataEdgesNodeFilterInput>;
+export type GithubDataRawResultDataSearchEdges = {
+  node?: Maybe<GithubDataRawResultDataSearchEdgesNode>;
 };
 
-export type GithubDataRawResultDataAllGithubDataEdgesFilterListInput = {
-  elemMatch?: Maybe<GithubDataRawResultDataAllGithubDataEdgesFilterInput>;
+export type GithubDataRawResultDataSearchEdgesFilterInput = {
+  node?: Maybe<GithubDataRawResultDataSearchEdgesNodeFilterInput>;
 };
 
-export type GithubDataRawResultDataAllGithubDataEdgesNode = {
+export type GithubDataRawResultDataSearchEdgesFilterListInput = {
+  elemMatch?: Maybe<GithubDataRawResultDataSearchEdgesFilterInput>;
+};
+
+export type GithubDataRawResultDataSearchEdgesNode = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
 };
 
-export type GithubDataRawResultDataAllGithubDataEdgesNodeFilterInput = {
+export type GithubDataRawResultDataSearchEdgesNodeFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
 };
 
-export type GithubDataRawResultDataAllGithubDataFilterInput = {
-  edges?: Maybe<GithubDataRawResultDataAllGithubDataEdgesFilterListInput>;
-};
-
-export type GithubDataRawResultDataFilterInput = {
-  allGithubData?: Maybe<GithubDataRawResultDataAllGithubDataFilterInput>;
+export type GithubDataRawResultDataSearchFilterInput = {
+  edges?: Maybe<GithubDataRawResultDataSearchEdgesFilterListInput>;
 };
 
 export type GithubDataRawResultFilterInput = {
@@ -1944,12 +1944,12 @@ export type Query = {
   allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  githubData?: Maybe<GithubData>;
+  allGithubData: GithubDataConnection;
   feedHatenaBlogPostsMeta?: Maybe<FeedHatenaBlogPostsMeta>;
   allFeedHatenaBlogPostsMeta: FeedHatenaBlogPostsMetaConnection;
   feedHatenaBlogPosts?: Maybe<FeedHatenaBlogPosts>;
   allFeedHatenaBlogPosts: FeedHatenaBlogPostsConnection;
-  githubData?: Maybe<GithubData>;
-  allGithubData: GithubDataConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2126,6 +2126,24 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryGithubDataArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  data?: Maybe<GithubDataDataFilterInput>;
+  rawResult?: Maybe<GithubDataRawResultFilterInput>;
+};
+
+
+export type QueryAllGithubDataArgs = {
+  filter?: Maybe<GithubDataFilterInput>;
+  sort?: Maybe<GithubDataSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryFeedHatenaBlogPostsMetaArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2160,32 +2178,14 @@ export type QueryFeedHatenaBlogPostsArgs = {
   content?: Maybe<StringQueryOperatorInput>;
   contentSnippet?: Maybe<StringQueryOperatorInput>;
   guid?: Maybe<StringQueryOperatorInput>;
-  categories?: Maybe<StringQueryOperatorInput>;
   isoDate?: Maybe<DateQueryOperatorInput>;
+  categories?: Maybe<StringQueryOperatorInput>;
 };
 
 
 export type QueryAllFeedHatenaBlogPostsArgs = {
   filter?: Maybe<FeedHatenaBlogPostsFilterInput>;
   sort?: Maybe<FeedHatenaBlogPostsSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGithubDataArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  data?: Maybe<GithubDataDataFilterInput>;
-  rawResult?: Maybe<GithubDataRawResultFilterInput>;
-};
-
-
-export type QueryAllGithubDataArgs = {
-  filter?: Maybe<GithubDataFilterInput>;
-  sort?: Maybe<GithubDataSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3155,7 +3155,7 @@ export type DefaultSeoQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<Si
 export type IndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexQuery = { allGithubData: { edges: Array<{ node: { data?: Maybe<{ allGithubData?: Maybe<{ edges?: Maybe<Array<Maybe<{ node?: Maybe<Pick<GithubDataDataAllGithubDataEdgesNode, 'id' | 'name' | 'description' | 'url'>> }>>> }> }> } }> }, allFeedHatenaBlogPosts: { edges: Array<{ node: Pick<FeedHatenaBlogPosts, 'title' | 'link' | 'pubDate'> }> } };
+export type IndexQuery = { githubData?: Maybe<{ data?: Maybe<{ search?: Maybe<{ edges?: Maybe<Array<Maybe<{ node?: Maybe<Pick<GithubDataDataSearchEdgesNode, 'id' | 'name' | 'description' | 'url'>> }>>> }> }> }>, allFeedHatenaBlogPosts: { edges: Array<{ node: Pick<FeedHatenaBlogPosts, 'title' | 'link' | 'pubDate'> }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

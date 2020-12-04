@@ -30,8 +30,8 @@ module.exports = {
       options: {
         token: process.env.GITHUB_API_TOKEN,
         graphQLQuery: `
-        query ($q: String="", $nFirst: Int=0) {
-          allGithubData: search(query: $q, type: REPOSITORY, first: $nFirst) {
+        query ($nFirst: Int, $q: String!) {
+          search(query: $q, type: REPOSITORY, first: $nFirst) {
             edges {
               node {
                 ... on Repository {

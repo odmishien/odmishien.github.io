@@ -17,7 +17,7 @@ interface IndexProps {
 
 const IndexPage: React.FC<IndexProps> = ({ data }) => {
   const posts = data.allFeedHatenaBlogPosts.edges
-  const repos = data.allGithubData.edges[0].node.data.allGithubData.edges
+  const repos = data.githubData?.data?.search?.edges
   return (
     <>
       <SEO title="odmishien" keywords={[`gatsby`]}></SEO>
@@ -59,19 +59,15 @@ export default IndexPage
 
 export const query = graphql`
   query Index {
-    allGithubData {
-      edges {
-        node {
-          data {
-            allGithubData {
-              edges {
-                node {
-                  id
-                  name
-                  description
-                  url
-                }
-              }
+    githubData {
+      data {
+        search {
+          edges {
+            node {
+              id
+              name
+              description
+              url
             }
           }
         }
