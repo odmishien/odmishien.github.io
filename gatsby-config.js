@@ -43,8 +43,7 @@ module.exports = {
               }
             }
           }
-        }
-        `,
+        }`,
         variables: {
           q: `topic:portfolio user:odmishien`,
           nFirst: 10,
