@@ -35,11 +35,6 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
                 <FiGithub />
               </h1>
             </a>
-            <a className="mr-1" href="https://instagram.com/odmishien">
-              <h1>
-                <FiInstagram />
-              </h1>
-            </a>
             <a className="mr-1" href="https://blog.odmishien.fun">
               <h1>
                 <FiPenTool />
