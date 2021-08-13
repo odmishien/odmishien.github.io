@@ -2121,12 +2121,12 @@ export type Query = {
   allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  githubData?: Maybe<GithubData>;
+  allGithubData: GithubDataConnection;
   feedHatenaBlogPostsMeta?: Maybe<FeedHatenaBlogPostsMeta>;
   allFeedHatenaBlogPostsMeta: FeedHatenaBlogPostsMetaConnection;
   feedHatenaBlogPosts?: Maybe<FeedHatenaBlogPosts>;
   allFeedHatenaBlogPosts: FeedHatenaBlogPostsConnection;
-  githubData?: Maybe<GithubData>;
-  allGithubData: GithubDataConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2305,6 +2305,24 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryGithubDataArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  data?: Maybe<GithubDataDataFilterInput>;
+  rawResult?: Maybe<GithubDataRawResultFilterInput>;
+};
+
+
+export type QueryAllGithubDataArgs = {
+  filter?: Maybe<GithubDataFilterInput>;
+  sort?: Maybe<GithubDataSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryFeedHatenaBlogPostsMetaArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2347,24 +2365,6 @@ export type QueryFeedHatenaBlogPostsArgs = {
 export type QueryAllFeedHatenaBlogPostsArgs = {
   filter?: Maybe<FeedHatenaBlogPostsFilterInput>;
   sort?: Maybe<FeedHatenaBlogPostsSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGithubDataArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  data?: Maybe<GithubDataDataFilterInput>;
-  rawResult?: Maybe<GithubDataRawResultFilterInput>;
-};
-
-
-export type QueryAllGithubDataArgs = {
-  filter?: Maybe<GithubDataFilterInput>;
-  sort?: Maybe<GithubDataSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2941,6 +2941,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
   | 'pluginCreator___packageJson___main'
+  | 'pluginCreator___packageJson___author'
   | 'pluginCreator___packageJson___license'
   | 'pluginCreator___packageJson___dependencies'
   | 'pluginCreator___packageJson___dependencies___name'
@@ -3151,6 +3152,7 @@ export type SitePluginFieldsEnum =
   | 'packageJson___description'
   | 'packageJson___version'
   | 'packageJson___main'
+  | 'packageJson___author'
   | 'packageJson___license'
   | 'packageJson___dependencies'
   | 'packageJson___dependencies___name'
@@ -3193,6 +3195,7 @@ export type SitePluginPackageJson = {
   description?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
   main?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
   license?: Maybe<Scalars['String']>;
   dependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>;
   devDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>;
@@ -3233,6 +3236,7 @@ export type SitePluginPackageJsonFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   main?: Maybe<StringQueryOperatorInput>;
+  author?: Maybe<StringQueryOperatorInput>;
   license?: Maybe<StringQueryOperatorInput>;
   dependencies?: Maybe<SitePluginPackageJsonDependenciesFilterListInput>;
   devDependencies?: Maybe<SitePluginPackageJsonDevDependenciesFilterListInput>;
