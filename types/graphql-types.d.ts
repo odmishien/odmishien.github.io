@@ -2121,12 +2121,12 @@ export type Query = {
   allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  githubData?: Maybe<GithubData>;
-  allGithubData: GithubDataConnection;
   feedHatenaBlogPostsMeta?: Maybe<FeedHatenaBlogPostsMeta>;
   allFeedHatenaBlogPostsMeta: FeedHatenaBlogPostsMetaConnection;
   feedHatenaBlogPosts?: Maybe<FeedHatenaBlogPosts>;
   allFeedHatenaBlogPosts: FeedHatenaBlogPostsConnection;
+  githubData?: Maybe<GithubData>;
+  allGithubData: GithubDataConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2303,24 +2303,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryGithubDataArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  data?: Maybe<GithubDataDataFilterInput>;
-  rawResult?: Maybe<GithubDataRawResultFilterInput>;
-};
-
-
-export type QueryAllGithubDataArgs = {
-  filter?: Maybe<GithubDataFilterInput>;
-  sort?: Maybe<GithubDataSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryFeedHatenaBlogPostsMetaArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2363,6 +2345,24 @@ export type QueryFeedHatenaBlogPostsArgs = {
 export type QueryAllFeedHatenaBlogPostsArgs = {
   filter?: Maybe<FeedHatenaBlogPostsFilterInput>;
   sort?: Maybe<FeedHatenaBlogPostsSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGithubDataArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  data?: Maybe<GithubDataDataFilterInput>;
+  rawResult?: Maybe<GithubDataRawResultFilterInput>;
+};
+
+
+export type QueryAllGithubDataArgs = {
+  filter?: Maybe<GithubDataFilterInput>;
+  sort?: Maybe<GithubDataSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3372,10 +3372,15 @@ export type DefaultSeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type DefaultSeoQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-export type IndexQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexQuery = { githubData?: Maybe<{ data?: Maybe<{ search?: Maybe<{ edges?: Maybe<Array<Maybe<{ node?: Maybe<Pick<GithubDataDataSearchEdgesNode, 'id' | 'name' | 'description' | 'url'>> }>>> }> }> }>, allFeedHatenaBlogPosts: { edges: Array<{ node: Pick<FeedHatenaBlogPosts, 'title' | 'link' | 'pubDate'> }> } };
+export type PostsQuery = { allFeedHatenaBlogPosts: { edges: Array<{ node: Pick<FeedHatenaBlogPosts, 'title' | 'link' | 'pubDate'> }> } };
+
+export type WorksQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type WorksQuery = { githubData?: Maybe<{ data?: Maybe<{ search?: Maybe<{ edges?: Maybe<Array<Maybe<{ node?: Maybe<Pick<GithubDataDataSearchEdgesNode, 'id' | 'name' | 'description' | 'url'>> }>>> }> }> }> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

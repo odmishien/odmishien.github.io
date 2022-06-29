@@ -20,7 +20,9 @@ const GitRepos: React.FC<GitReposProps> = ({ repos, user }) => {
     const { id, url, name, description } = repo.node
     return (
       <li key={id}>
-        <a href={url}>{name}</a>
+        <a href={url} target="_blank">
+          {name}
+        </a>
         <br />
         <span>{description}</span>
       </li>
@@ -28,13 +30,17 @@ const GitRepos: React.FC<GitReposProps> = ({ repos, user }) => {
   })
 
   return (
-    <Row className="mb-4">
+    <Row className="my-4">
       <section id="github">
-        <h2>GitHub</h2>
+        <h2>Works</h2>
         <ul className="alt">{items}</ul>
         <ul className="actions">
           <li>
-            <a href={`https://github.com/${user}`} className="button">
+            <a
+              href={`https://github.com/${user}`}
+              target="_blank"
+              className="button"
+            >
               Show More Items
             </a>
           </li>
