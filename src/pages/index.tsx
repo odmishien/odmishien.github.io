@@ -41,7 +41,7 @@ const IndexPage: React.FC = () => {
                   <FiGithub />
                 </h1>
               </a>
-              <a className="mr-1" href="https://blog.odmishien.fun">
+              <a className="mr-1" href="https://odmishien.hatenablog.jp/">
                 <h1>
                   <FiPenTool />
                 </h1>

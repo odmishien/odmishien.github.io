@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://tech.odmishien.fun/rss`,
+        url: `https://odmishien-tech.hatenablog.jp/rss`,
         name: `HatenaBlogPosts`,
       },
     },

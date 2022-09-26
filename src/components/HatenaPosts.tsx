@@ -38,7 +38,7 @@ const HatenaPosts: React.FC<HatenaPostsProps> = ({ posts }) => {
           {items}
           <li>
             <a
-              href={`https://tech.odmishien.fun`}
+              href={`https://odmishien-tech.hatenablog.jp/`}
               target="_blank"
               className="button"
             >
