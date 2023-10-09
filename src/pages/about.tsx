@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
             </td>
           </tr>
           <tr>
-            <td>2021~</td>
+            <td>2023~</td>
             <td>
               Server Side Engineer / @{" "}
               <a href="https://www.live.iriam.com/company" target="_blank">
