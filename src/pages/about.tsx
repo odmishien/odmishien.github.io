@@ -31,6 +31,15 @@ const AboutPage: React.FC = () => {
               </a>
             </td>
           </tr>
+          <tr>
+            <td>2021~</td>
+            <td>
+              Server Side Engineer / @{" "}
+              <a href="https://www.live.iriam.com/company" target="_blank">
+                IRIAM Inc.
+              </a>
+            </td>
+          </tr>
         </table>
       </Row>
     </Container>
