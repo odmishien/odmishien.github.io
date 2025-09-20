@@ -12,7 +12,7 @@ const AboutPage: React.FC = () => {
         <h2>💼 Careers</h2>
       </Row>
       <Row>
-        <table className="table table-borderless text-white">
+        <table className="table table-borderless">
           <tr>
             <td>2019~2021</td>{" "}
             <td>
