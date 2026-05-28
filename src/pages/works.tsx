@@ -1,40 +1,98 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { WorksQuery } from "../../types/graphql-types"
+
+import Layout from "../components/layout"
 import GitRepos from "../components/GitRepos"
-import { Container } from "react-bootstrap"
-import Header from "../components/Header"
+import { SEO } from "../components/SEO"
 
 interface WorksProps {
-  data: WorksQuery
+  data: any
 }
 
 const WorksPage: React.FC<WorksProps> = ({ data }) => {
-  const repos = data.githubData?.data?.search?.edges
+  // GITHUB_API_TOKEN 未設定時は空配列 (schema に githubData が無いケースを許容)
+  const repos = data?.githubData?.data?.search?.edges ?? []
+
   return (
-    <Container>
-      <Header></Header>
-      <GitRepos repos={repos} user="odmishien"></GitRepos>
-    </Container>
+    <>
+      <SEO title="works / odmishien" />
+      <Layout active="works">
+        <div className="mx-auto max-w-6xl">
+          {/* ページラベル */}
+          <div className="flex items-center gap-3 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-bone-500">
+            <span className="h-px w-6 bg-neon-magenta/60" />
+            <span>chapter 02</span>
+            <span className="text-bone-600">/ works</span>
+          </div>
+
+          {/* ヒーロー */}
+          <section className="mt-8 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div>
+              <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] tracking-tight text-bone-50 text-glow-soft animate-fade-up">
+                Open
+                <br />
+                <span className="italic text-gradient-neon">source works</span>
+              </h1>
+              <p
+                className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-bone-300 animate-fade-up"
+                style={{ animationDelay: "150ms" }}
+              >
+                Repositories tagged{" "}
+                <code className="px-1.5 py-0.5 rounded bg-white/5 text-neon-cyan">
+                  portfolio
+                </code>{" "}
+                on GitHub. Sketches, side-projects and tools I publish in the
+                open.
+              </p>
+            </div>
+
+            <div
+              className="font-mono text-xs uppercase tracking-widest text-bone-500 animate-fade-up"
+              style={{ animationDelay: "240ms" }}
+            >
+              <div>
+                <span className="text-bone-600">count</span>{" "}
+                <span className="text-bone-100">
+                  {String(repos.length).padStart(2, "0")}
+                </span>
+              </div>
+              <div>
+                <span className="text-bone-600">source</span>{" "}
+                <span className="text-bone-100">github.com/odmishien</span>
+              </div>
+            </div>
+          </section>
+
+          <div className="hairline mt-10" />
+
+          {/* グリッド */}
+          <section className="mt-10">
+            <GitRepos repos={repos as any} user="odmishien" />
+          </section>
+        </div>
+      </Layout>
+    </>
   )
 }
+
 export default WorksPage
 
-export const query = graphql`
-  query Works {
-    githubData {
-      data {
-        search {
-          edges {
-            node {
-              id
-              name
-              description
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// GITHUB_API_TOKEN 未設定時は githubData が schema に存在しないためコメントアウト
+// export const query = graphql`
+//   query Works {
+//     githubData {
+//       data {
+//         search {
+//           edges {
+//             node {
+//               id
+//               name
+//               description
+//               url
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

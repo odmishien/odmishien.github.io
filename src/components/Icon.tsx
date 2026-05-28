@@ -1,31 +1,14 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 
-import { Row } from "react-bootstrap"
-import Image from "gatsby-image"
-import { IconQuery } from "../../types/graphql-types"
-
-const Icon = () => {
-  const data: IconQuery = useStaticQuery(graphql`
-    query Icon {
-      file(relativePath: { eq: "icon.png" }) {
-        childImageSharp {
-          fixed(width: 100, height: 100) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
-  return (
-    <Row className="ml-1 mb-4">
-      <>
-        {data?.file?.childImageSharp?.fixed && (
-          <Image fixed={data?.file?.childImageSharp?.fixed} />
-        )}
-      </>
-    </Row>
-  )
-}
+// gatsby-image / sharp 依存を切り、静的アセットから直接読む
+const Icon: React.FC<{ size?: number }> = ({ size = 128 }) => (
+  <img
+    src="/icon.png"
+    alt="odmishien"
+    width={size}
+    height={size}
+    style={{ width: size, height: size, display: "block", objectFit: "cover" }}
+  />
+)
 
 export default Icon
