@@ -93,7 +93,7 @@ const IndexPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-bone-600">based</span>{" "}
-                  <span className="text-bone-100">Tokyo, JP</span>
+                  <span className="text-bone-100">Osaka, JP</span>
                 </div>
               </div>
             </div>
@@ -104,27 +104,31 @@ const IndexPage: React.FC = () => {
                 <span className="block text-bone-50 text-glow-soft">
                   odmishien
                 </span>
-                <span className="block text-gradient-neon italic">
-                  &mdash; observatory
-                </span>
               </h1>
 
               <p
-                className="mt-8 max-w-xl font-mono text-sm sm:text-base leading-relaxed text-bone-300 animate-fade-up"
+                className="mt-8 max-w-2xl font-mono text-sm sm:text-base leading-loose text-bone-300 animate-fade-up"
                 style={{ animationDelay: "200ms" }}
               >
-                Backend & SRE engineer building reliable, observable systems.
-                <br className="hidden sm:block" />
-                Currently at{" "}
+                2021年に
                 <a
-                  href="https://www.live.iriam.com/company"
+                  href="https://dena.com/"
                   target="_blank"
                   rel="noreferrer"
                   className="link-underline text-neon-cyan"
                 >
-                  IRIAM Inc.
+                  株式会社ディー・エヌ・エー
                 </a>
-                — previously Hatena & DeNA.
+                にエンジニア職として新卒入社。入社後は社内サービスのクラウドインフラ基盤を管理する部署に配属。主にライブ配信サービスやその他エンタメサービスのSREとして、インフラ基盤管理・開発、障害対応、コスト削減などに取り組む。2023年2月に部署を異動し、子会社である
+                <a
+                  href="https://www.live.iriam.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-underline text-neon-cyan"
+                >
+                  株式会社IRIAM
+                </a>
+                へ出向。現在はサービス内におけるユーザーマッチング課題に対して機能開発を行うクロスファンクショナルチームにてエンジニアリングマネージャーとして奮闘中。
               </p>
             </div>
           </section>

@@ -1,15 +1,23 @@
 import React from "react"
+import { FiArrowUpRight } from "react-icons/fi"
 
 import Layout from "../components/layout"
 import { SEO } from "../components/SEO"
 
 // キャリアタイムラインのデータ。順序は新しい順
+type CareerLink = {
+  label: string
+  href: string
+}
+
 type Career = {
   period: string
-  role: string
   company: string
-  href: string
-  note?: string
+  companyHref: string
+  department: string
+  role: string
+  note: string
+  links?: CareerLink[]
   accent: "cyan" | "magenta" | "violet"
   current?: boolean
 }
@@ -17,27 +25,47 @@ type Career = {
 const CAREERS: Career[] = [
   {
     period: "2023 — now",
-    role: "Server Side Engineer",
-    company: "IRIAM Inc.",
-    href: "https://www.live.iriam.com/company",
-    note: "Live streaming platform for vtubers.",
+    company: "IRIAM inc.",
+    companyHref: "https://www.live.iriam.com",
+    department:
+      "IRIAMプラットフォーム事業部 プロダクト開発部 エンジニアリング第一グループ",
+    role: "エンジニアリングマネージャー",
+    note: "新感覚VTuber配信アプリ「IRIAM」における機能開発チームのマネージャー。PdMやデザイナーと仮説に対して要求分析・要件定義から行い、その検証をアジャイルに進めていくチームの運営・マネジメント・開発を担当。自身も設計や実装を行うプレイングマネージャー。",
+    links: [
+      {
+        label: "インタビュー記事",
+        href: "https://fullswing.dena.com/archives/100143/",
+      },
+      {
+        label: "podcast",
+        href: "https://podcasts.apple.com/jp/podcast/134-%E8%87%AA%E5%88%86%E3%81%AE%E4%BA%BA%E7%94%9F%E3%81%AF%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%A7%E5%A4%89%E3%81%88%E3%82%89%E3%82%8C%E3%82%8B-%E3%81%A8%E7%9F%A5%E3%81%A3%E3%81%A6-%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%99-dena-%E3%81%8A%E3%81%A7%E3%82%93/id1653563200?i=1000734427012",
+      },
+    ],
     accent: "cyan",
     current: true,
   },
   {
     period: "2021 — 2023",
-    role: "Infra Engineer / SRE",
     company: "DeNA Co., Ltd.",
-    href: "https://dena.com/",
-    note: "Cloud infrastructure & reliability engineering.",
+    companyHref: "https://dena.com/",
+    department: "IT本部 IT基盤部",
+    role: "インフラエンジニア / SRE",
+    note: "ライブ配信サービスやその他エンタメサービスのインフラ基盤(AWSがメイン)の保守運用、改善業務を担当。コスト削減の提案・コンサルティングや、マルチプラットフォーム化に向けたR&Dなども行う。",
+    links: [
+      {
+        label: "ブログ記事",
+        href: "https://engineering.dena.com/blog/2022/07/aws-gameday/",
+      },
+    ],
     accent: "magenta",
   },
   {
     period: "2019 — 2021",
-    role: "Software Engineer",
     company: "Hatena Co., Ltd.",
-    href: "https://hatena.co.jp/",
-    note: "Web services for publishers and readers.",
+    companyHref: "https://hatena.co.jp/",
+    department: "サービスプラットフォーム事業部",
+    role: "ソフトウェアエンジニア",
+    note: "社内サービス基盤や、メイン以外のプロダクト(社内ツールを含む)の開発・保守運用を担当。",
     accent: "violet",
   },
 ]
@@ -67,55 +95,6 @@ const AboutPage: React.FC = () => {
             <span className="text-bone-600">/ about</span>
           </div>
 
-          {/* ヒーロー: バイオグラフィ */}
-          <section className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-7">
-              <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] tracking-tight text-bone-50 text-glow-soft animate-fade-up">
-                Engineer,
-                <br />
-                <span className="italic text-gradient-neon">always learning.</span>
-              </h1>
-              <p
-                className="mt-8 max-w-xl font-mono text-sm sm:text-base leading-relaxed text-bone-300 animate-fade-up"
-                style={{ animationDelay: "150ms" }}
-              >
-                Hi, I&apos;m Tetsuya — known online as{" "}
-                <span className="text-bone-100">odmishien</span>. I build &amp;
-                operate backend systems for products that need to stay up at
-                scale. I care about reliability, observability, and writing code
-                that the next person on call can actually read.
-              </p>
-            </div>
-
-            {/* 右: メタ情報 (mono の表) */}
-            <aside
-              className="lg:col-span-5 glass rounded-sm p-6 sm:p-7 animate-fade-up"
-              style={{ animationDelay: "240ms" }}
-            >
-              <div className="font-mono text-[10px] uppercase tracking-widest text-bone-500">
-                profile / system info
-              </div>
-              <dl className="mt-5 space-y-3 font-mono text-sm">
-                {[
-                  ["alias", "@odmishien"],
-                  ["role", "backend · sre"],
-                  ["loc", "Tokyo, JP"],
-                  ["status", "online"],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="flex items-center justify-between gap-4 border-b border-dashed border-white/10 pb-2 last:border-0 last:pb-0"
-                  >
-                    <dt className="text-bone-600 uppercase tracking-widest text-[11px]">
-                      {k}
-                    </dt>
-                    <dd className="text-bone-100">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </aside>
-          </section>
-
           {/* キャリアタイムライン */}
           <section className="mt-20 sm:mt-28">
             <header className="flex items-end justify-between gap-4 flex-wrap">
@@ -123,7 +102,7 @@ const AboutPage: React.FC = () => {
                 Careers
               </h2>
               <span className="font-mono text-[10px] uppercase tracking-widest text-bone-500">
-                0{CAREERS.length} entries
+                0{CAREERS.length} careers
               </span>
             </header>
             <div className="hairline mt-4" />
@@ -138,7 +117,7 @@ const AboutPage: React.FC = () => {
               {CAREERS.map((c, idx) => (
                 <li
                   key={c.company}
-                  className="relative pl-8 sm:pl-12 pb-12 last:pb-0 animate-fade-up"
+                  className="relative pl-8 sm:pl-12 pb-14 last:pb-0 animate-fade-up"
                   style={{ animationDelay: `${idx * 120}ms` }}
                 >
                   {/* 接続点 */}
@@ -153,24 +132,22 @@ const AboutPage: React.FC = () => {
                     />
                   )}
 
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
-                    <div className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-bone-500">
-                      <span className={ACCENT_TEXT[c.accent]}>●</span>{" "}
-                      {c.period}
-                      {c.current && (
-                        <span className="ml-3 inline-flex items-center gap-1 text-neon-cyan">
-                          <span className="h-1 w-1 rounded-full bg-neon-cyan animate-pulse-slow" />
-                          current
-                        </span>
-                      )}
-                    </div>
+                  {/* 期間 + current バッジ */}
+                  <div className="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-bone-500">
+                    <span className={ACCENT_TEXT[c.accent]}>●</span>{" "}
+                    {c.period}
+                    {c.current && (
+                      <span className="ml-3 inline-flex items-center gap-1 text-neon-cyan">
+                        <span className="h-1 w-1 rounded-full bg-neon-cyan animate-pulse-slow" />
+                        current
+                      </span>
+                    )}
                   </div>
 
+                  {/* 会社名 */}
                   <h3 className="mt-3 font-display text-3xl sm:text-4xl leading-tight text-bone-50">
-                    {c.role}{" "}
-                    <span className="text-bone-500">@</span>{" "}
                     <a
-                      href={c.href}
+                      href={c.companyHref}
                       target="_blank"
                       rel="noreferrer"
                       className={`link-underline ${ACCENT_TEXT[c.accent]}`}
@@ -178,10 +155,51 @@ const AboutPage: React.FC = () => {
                       {c.company}
                     </a>
                   </h3>
-                  {c.note && (
-                    <p className="mt-3 font-mono text-sm text-bone-300 max-w-2xl">
-                      {c.note}
-                    </p>
+
+                  {/* 部署 / 役職 */}
+                  <div className="mt-3 font-mono text-xs sm:text-sm text-bone-300 space-y-1">
+                    <div className="flex flex-wrap items-baseline gap-x-3">
+                      <span className="text-bone-600 uppercase tracking-widest text-[10px] whitespace-nowrap">
+                        dept
+                      </span>
+                      <span>{c.department}</span>
+                    </div>
+                    <div className="flex flex-wrap items-baseline gap-x-3">
+                      <span className="text-bone-600 uppercase tracking-widest text-[10px] whitespace-nowrap">
+                        role
+                      </span>
+                      <span className="text-bone-100">{c.role}</span>
+                    </div>
+                  </div>
+
+                  {/* 業務内容 */}
+                  <p className="mt-4 font-mono text-sm leading-loose text-bone-300 max-w-2xl">
+                    {c.note}
+                  </p>
+
+                  {/* 関連リンク */}
+                  {c.links && c.links.length > 0 && (
+                    <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs">
+                      <li className="text-bone-600 uppercase tracking-widest text-[10px]">
+                        links
+                      </li>
+                      {c.links.map(l => (
+                        <li key={l.href}>
+                          <a
+                            href={l.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className={`group inline-flex items-center gap-1 ${ACCENT_TEXT[c.accent]} hover:opacity-80 transition-opacity`}
+                          >
+                            <span className="link-underline">{l.label}</span>
+                            <FiArrowUpRight
+                              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                              aria-hidden
+                            />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </li>
               ))}
