@@ -30,9 +30,29 @@ module.exports = {
       },
       fontFamily: {
         // Google Fonts は layout.tsx から読み込む
-        display: ['"Instrument Serif"', "Georgia", "serif"],
-        mono: ['"JetBrains Mono"', "ui-monospace", "Menlo", "monospace"],
-        sans: ['"JetBrains Mono"', "system-ui", "sans-serif"],
+        // 英数字 → ラテンフォント、日本語 → CJK フォントに自動でフォールバック
+        display: [
+          '"Instrument Serif"',
+          '"Hiragino Mincho ProN"',
+          '"Yu Mincho"',
+          "Georgia",
+          "serif",
+        ],
+        mono: [
+          '"JetBrains Mono"',
+          "ui-monospace",
+          "Menlo",
+          '"Hiragino Sans"',
+          '"Noto Sans JP"',
+          "sans-serif",
+        ],
+        sans: [
+          '"JetBrains Mono"',
+          "system-ui",
+          '"Hiragino Sans"',
+          '"Noto Sans JP"',
+          "sans-serif",
+        ],
       },
       letterSpacing: {
         widest: "0.32em",

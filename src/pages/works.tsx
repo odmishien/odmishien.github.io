@@ -10,7 +10,7 @@ interface WorksProps {
 }
 
 const WorksPage: React.FC<WorksProps> = ({ data }) => {
-  // GITHUB_API_TOKEN 未設定時は空配列 (schema に githubData が無いケースを許容)
+  // GITHUB_API_TOKEN 未設定時は githubData が null になる (gatsby-node.js でスキーマだけ常に定義)
   const repos = data?.githubData?.data?.search?.edges ?? []
 
   return (
@@ -77,22 +77,22 @@ const WorksPage: React.FC<WorksProps> = ({ data }) => {
 
 export default WorksPage
 
-// GITHUB_API_TOKEN 未設定時は githubData が schema に存在しないためコメントアウト
-// export const query = graphql`
-//   query Works {
-//     githubData {
-//       data {
-//         search {
-//           edges {
-//             node {
-//               id
-//               name
-//               description
-//               url
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+// スキーマは gatsby-node.js で常に定義しているため、token の有無によらずクエリは通る
+export const query = graphql`
+  query Works {
+    githubData {
+      data {
+        search {
+          edges {
+            node {
+              id
+              name
+              description
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`
